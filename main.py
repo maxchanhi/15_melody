@@ -1,8 +1,8 @@
 import streamlit as st
-import numpy as np
-from rate import play_freq,results1
+
+from rate import play_freq,generate_interval
 from synth import st_play_back
-results = results1
+results = generate_interval()
 ratings = []
 
 def main():
