@@ -1,2 +1,4 @@
-
+av==9.2.0
 pyaudio
+streamlit_webrtc==0.43.0
+numpy==1.23.0
