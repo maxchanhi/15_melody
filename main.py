@@ -1,3 +1,6 @@
+import streamlit as st
+import numpy as np
+from rate import results1
 results = results1
 ratings = []
 sample_rate = 44100  # 44100 samples per second
