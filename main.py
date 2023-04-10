@@ -13,7 +13,7 @@ def main():
     while state < len(results):
         st.write(f"Melody: {results[state]}")
         st_play_back(play_freq(results)[state])
-        rating = st.radio("Rate this melody:", ["Good","-", "Bad"], key=f"radio{state}")
+        rating = st.radio("Rate this melody:", ["Good","-", "Bad"], index=1, key=f"radio{state}")
         if rating != "":
             if rating == "Good":
                 ratings.insert(state, "g")
