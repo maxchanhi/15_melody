@@ -1,5 +1,5 @@
 
-from synth import play_back
+
 def append_note(accend_decend, pitch_class):
     append = accend_decend + str(pitch_class)
     return append
