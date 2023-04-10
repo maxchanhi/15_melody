@@ -13,13 +13,14 @@ def main():
     while state < len(results):
         st.write(f"Melody: {results[state]}")
         st_play_back(play_freq(results)[state])
-        rating = st.text_input("Rate this result good(g)/bad(b): ", key=f"input{state}")
-        if rating.lower() in [""]:
-            pass
-        elif rating.lower() not in ["g","b"]:
-            st.warning("Please enter 'g' for good or 'b' for bad.")
-        else:
-            ratings.insert(state,rating)
+        rating = st.radio("Rate this result:", ["","Good", "Bad"], key=f"radio{state}")
+        if rating != "":
+            if rating == "Good":
+                ratings.insert(state, "g")
+            elif rating == "Bad":
+                ratings.insert(state, "b")
+            else:
+                ratings.insert(state, "")
         """______________________"""
         state += 1
     st.success(f"Ratings: {ratings}, {results}")   
