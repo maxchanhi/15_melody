@@ -1,5 +1,5 @@
 
-
+from synth import play_back
 def append_note(accend_decend, pitch_class):
     append = accend_decend + str(pitch_class)
     return append
@@ -16,7 +16,7 @@ def generate_interval():
             note = append_note(acc_dec, pitch)
             melody.append(note)
             melody_sum = sum((eval(x) for x in melody))
-            if melody_sum > 23 or melody_sum < -23:
+            if melody_sum > 23 or melody_sum < -23 or note == "-0":
                 melody = []
                 break
             else:
@@ -65,16 +65,5 @@ def select_melodies(rate,melody):
 
 
 freqs = get_frequencies(110, 3)
-#rate_results(generate_interval())
 
-list = [generate_interval() for x in range(10)]
-import json
-with open('melodies.json', 'w') as f:
-    # Loop through the list and add each element to the file
-    f.write("[")
-    for item in list:
-        json.dump(item, f)
-        f.write(',')
-        f.write('\n')
-    f.write("]")
 results1 = generate_interval()
