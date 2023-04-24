@@ -1,5 +1,4 @@
-
-from synth import play_back
+from synth import st_play_back
 def append_note(accend_decend, pitch_class):
     append = accend_decend + str(pitch_class)
     return append
@@ -38,7 +37,7 @@ def rate_results(results):
     ratings = []
     for i in range(len(results)):
         print(f"Result: {results[i]}")
-        play_back(play_freq(results)[i])
+        st_play_back(play_freq(results)[i])
         rating = input("Rate this result good(g)/bad(b): ")
         while rating not in ["g", "b"]:
             rating = input("Invalid input. Please rate this result as g/b: ")
