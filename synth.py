@@ -2,13 +2,15 @@ import numpy as np
 import time
 import streamlit as st
 freq_list=[440,550,660]
+
 def st_play_back(freq_list):
     duration = 1.0
     volume = 0.2
-    overtones = 4
+    overtones_volumes = [1, 0.8, 0.6, 0.4, 0.3, 0.2]
+    overtones = len(overtones_volumes)
     fade_in = int(0.05 * 44100)  # 50 ms fade in
     fade_out = int(0.2 * 44100)  # 200 ms fade out
-
+    
     # Create empty array to store the final audio clip
     clip = np.zeros(int(duration * 44100 * len(freq_list)))
 
@@ -19,7 +21,7 @@ def st_play_back(freq_list):
         # Add overtones
         for overtone in range(1, overtones+1):
             overtone_freq = freq * overtone
-            overtone_note = volume * np.sin(overtone_freq * 2 * np.pi * t) / overtone
+            overtone_note = overtones_volumes[overtone-1] * volume * np.sin(overtone_freq * 2 * np.pi * t) / overtone
             note += overtone_note
         # Add fade in and fade out
         fade_in_curve = np.linspace(0, 1, fade_in)
