@@ -1,8 +1,5 @@
 import numpy as np
-
 import time
-freq_list=[440,550,660]
-
 import streamlit as st
 freq_list=[440,550,660]
 def st_play_back(freq_list):
